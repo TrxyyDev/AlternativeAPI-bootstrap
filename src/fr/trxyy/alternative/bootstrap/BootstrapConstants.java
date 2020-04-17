@@ -4,11 +4,14 @@ import java.awt.Color;
 import java.awt.Paint;
 import java.io.File;
 
-import fr.trxyy.alternative.bootstrap.util.GameUtils;
+import fr.trxyy.alternative.alternative_api.utils.ResourceLocation;
+import fr.trxyy.alternative.alternative_api.utils.file.GameUtils;
 
 public class BootstrapConstants {
 	/** ========== DOSSIER D'INSTALLATION ========== **/
 	public static File WORKING_DIRECTORY = GameUtils.getWorkingDirectory("customlauncher");
+	/** ========== RESOURCE LOCATION ========== **/
+	public static ResourceLocation RESOURCE_LOCATION = new ResourceLocation();
 	/** ========== OU SE SITUERA LE LAUNCHER ========== **/
 	public static File LAUNCHER = new File(WORKING_DIRECTORY, "Launcher.jar");
 	/** ========== URL DU FICHIER launcher.cfg AVEC LE MD5 ========== **/
@@ -32,6 +35,10 @@ public class BootstrapConstants {
 
 	public static String getLauncherUrl() {
 		return LAUNCHER_URL;
+	}
+	
+	public static ResourceLocation getResourceLocation() {
+		return RESOURCE_LOCATION;
 	}
 
 	public static Paint getFillColor() {

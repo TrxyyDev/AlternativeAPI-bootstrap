@@ -5,18 +5,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 public class Home extends JFrame {
 
-	public Home() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e1) {
-			e1.printStackTrace();
-		}
+	private static final long serialVersionUID = 2047851418739459065L;
+
+	public Home() throws IOException {
 		this.setTitle("Bootstrap");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(500, 200);
@@ -26,14 +20,10 @@ public class Home extends JFrame {
 		BootPanel boot = new BootPanel(this);
 		this.setContentPane(boot);
 		this.setVisible(true);
-		try {
-			this.setIconImage(ImageIO.read(Home.class.getResourceAsStream("favicon.png")));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		this.setIconImage(BootstrapConstants.getResourceLocation().loadImageAWT("favicon.png"));
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new Home();
 	}
 }

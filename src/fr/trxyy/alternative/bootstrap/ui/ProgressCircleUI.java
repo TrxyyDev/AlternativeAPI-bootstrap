@@ -2,7 +2,6 @@ package fr.trxyy.alternative.bootstrap.ui;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
@@ -27,8 +26,6 @@ public class ProgressCircleUI extends BasicProgressBarUI {
 
 	public void paint(Graphics g, JComponent c) {
 		Insets b = this.progressBar.getInsets();
-//		int barRectWidth = this.progressBar.getWidth() - b.right - b.left;
-//		int barRectHeight = this.progressBar.getHeight() - b.top - b.bottom;
 		int barRectWidth = this.progressBar.getWidth() - b.right - b.left + 350;
 		int barRectHeight = this.progressBar.getHeight() - b.top - b.bottom;
 		if (barRectWidth <= 0 || barRectHeight <= 0) {
@@ -59,13 +56,14 @@ public class ProgressCircleUI extends BasicProgressBarUI {
 		/** ===== COULEUR DE FOND ===== **/
 		g2.setPaint(new Color(0.0F, 0.0F, 0.0F, 0.55F));
 		g2.fill(background);
-		
+
 		/** ===== COULEUR DE REMPLISSAGE ===== **/
 		g2.setPaint(BootstrapConstants.getFillColor());
 		g2.fill(foreground);
 		g2.dispose();
 
-		if (this.progressBar.isStringPainted())
+		if (this.progressBar.isStringPainted()) {
 			paintString(g, b.left, b.top, barRectWidth, barRectHeight, 0, b);
+		}
 	}
 }
